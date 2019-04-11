@@ -10,7 +10,7 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
 
-        <h2>Lecture #${lecture.id}: <c:out value="${lecture.lectureTitle}" /></h2>
+        <h2>Lecture: <c:out value="${lecture.lectureTitle}" /></h2>
         <security:authorize access="hasRole('ADMIN') or principal.username=='${lecture.customerName}'">            
             [<a href="<c:url value="/lecture/edit/${lecture.id}" />">Edit</a>]
         </security:authorize>
@@ -18,7 +18,7 @@
             [<a href="<c:url value="/lecture/delete/${lecture.id}" />">Delete</a>]
         </security:authorize>
         <br /><br />
-        <i>Customer Name - <c:out value="${lecture.customerName}" /></i><br /><br />
+        <i>Lecturer Name - <c:out value="${lecture.customerName}" /></i><br /><br />
         <c:out value="${lecture.body}" /><br /><br />
         <c:if test="${fn:length(lecture.attachments) > 0}">
             Attachments:
